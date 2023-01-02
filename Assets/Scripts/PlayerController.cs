@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     public Rigidbody m_Rigidbody;
     public float speed = 700;
     public Text scoreText;
+    public Text healthText;
 
     // Start is called before the first frame update
     void Start()
@@ -42,12 +43,11 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.tag == "Trap")
         {
             health -= 1;
-            Debug.Log("Health: " + health);
+            SetHealthText();
         }
         if (other.gameObject.tag == "Pickup")
         {
             score += 1;
-            // Debug.Log("Score: " + score);
             SetScoreText();
             Destroy(other.gameObject);
         }
@@ -60,5 +60,10 @@ public class PlayerController : MonoBehaviour
     void SetScoreText()
     {
         scoreText.text = "Score: " + score;
+    }
+
+    void SetHealthText()
+    {
+        healthText.text = "Health: " + health;
     }
 }
