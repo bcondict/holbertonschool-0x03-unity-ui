@@ -6,10 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    public GameObject optionsMenu;
-
     public Button playButton;
-    public Button optionsButton;
     public Button quitButton;
 
     public Material trapMat;
@@ -19,7 +16,6 @@ public class MainMenu : MonoBehaviour
     void Start()
     {
         playButton.onClick.AddListener(PlayMaze);
-        optionsButton.onClick.AddListener(Options);
         quitButton.onClick.AddListener(QuitMaze);
     }
 
@@ -48,12 +44,6 @@ public class MainMenu : MonoBehaviour
     {
         Debug.Log("Quit Game");
         Application.Quit();
-    }
-
-    public void Options()
-    {
-        gameObject.SetActive(false);
-        optionsMenu.SetActive(true);
     }
 
 }
